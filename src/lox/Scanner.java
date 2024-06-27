@@ -8,9 +8,9 @@ import java.util.Map;
 import static lox.TokenType.*;
 
 class Scanner {
-    private int start = 0;
-    private int current = 0;
-    private int line = 1;
+    private int start = 0;          // Stores the starting index of the current lexeme
+    private int current = 0;        // Stores the current index where we are at in the current lexeme
+    private int line = 1;           // Stores the line in which the current lexeme is in
 
     private final String source;
     private final List<Token> tokens = new ArrayList<>();
@@ -41,6 +41,7 @@ class Scanner {
         this.source = source;
     }
 
+    // Scans the input source lines and generates a list containing all the tokens
     List<Token> scanTokens() {
         while (!isAtEnd()) {
             // We are the beginning of the next lexeme.
